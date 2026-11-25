@@ -5,6 +5,7 @@ Usage:
   python scripts/browse.py --all
   python scripts/browse.py --categories
   python scripts/browse.py "text input"
+  python scripts/browse.py "dark mode"
   python scripts/browse.py inputs --json
 """
 
@@ -91,6 +92,11 @@ CATEGORY_ALIASES: dict[str, set[str]] = {
         "transition",
         "transitions",
         "page transition",
+        "dark mode",
+        "dark-mode",
+        "theme",
+        "theme toggle",
+        "theme-toggle",
         "scroll",
         "hero",
         "reveal",

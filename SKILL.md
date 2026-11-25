@@ -19,7 +19,7 @@ A personal, stack-agnostic repository of curated UI components and micro-interac
 When invoked directly (via `/ui-vault ...` or natural-language equivalents), route the argument as follows:
 
 - `/ui-vault` or `/ui-vault list` or `/ui-vault all` -> Run **Workflow 1 (Browse All)** showing category counts and all saved UIs.
-- `/ui-vault <category or keyword>` (e.g., `/ui-vault text input`, `/ui-vault inputs`, `/ui-vault password`, `/ui-vault buttons`) -> Run **Workflow 1 (Browse by Category / Tag)** matching via the Category & Alias Map and Catalog `Tags`.
+- `/ui-vault <category or keyword>` (e.g., `/ui-vault text input`, `/ui-vault inputs`, `/ui-vault password`, `/ui-vault dark mode`) -> Run **Workflow 1 (Browse by Category / Tag)** matching via the Category & Alias Map and Catalog `Tags`.
 - `/ui-vault inspect <id>` or `/ui-vault <exact-id>` -> Read `references/<category>/<id>.md` and display the full specification summary plus quick apply/prompt options.
 - `/ui-vault suggest` -> Run **Workflow 2 (Suggest for Current Project)**.
 - `/ui-vault apply <id>` -> Run **Workflow 3 (Apply a Saved Pattern)**.
@@ -39,7 +39,7 @@ Normalize natural-language queries to these canonical categories before filterin
 | `feedback` | toast, alert, banner, notification, badge, validation, empty state |
 | `loaders` | loader, loaders, loading, spinner, skeleton, progress, shimmer |
 | `data-display` | table, list, chart, kpi, stat, timeline, accordion |
-| `transitions` | transition, page transition, scroll, hero, reveal, parallax, background |
+| `transitions` | transition, page transition, dark mode, theme, theme toggle, scroll, hero, reveal, parallax, background |
 
 ## Catalog
 
@@ -48,6 +48,7 @@ Read only the referenced spec file when a pattern is inspected or selected for i
 | ID | Category | Pattern | Tags | Motion Vibe | Best For | Dependencies | Spec Path |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `notched-scramble-input` | `inputs` | Notched-Border Floating Label + Live Validation + Scramble Password Reveal | text-input, floating-label, live-validation, password-reveal, scramble, form | Snappy, tactile, precision-tech | Auth forms, signup flows, settings, API key or password fields | Pure CSS + lightweight rAF | `references/inputs/notched-scramble-input.md` |
+| `dark-mode-toggle-pack` | `transitions` | Dark Mode Toggle Pack (Portal Open, Curtain Drop, Line by Line, Theme Flip, Eclipse Slide, Clock Sweep) | dark-mode, theme-toggle, toggle, button, view-transitions, clip-path, 3d-flip, conic-mask, stagger | Expressive, tactile, adaptable | App-wide dark/light theme switches, settings cards, dashboards, portfolios | Pure CSS + lightweight JS (View Transitions / `@property`) | `references/transitions/dark-mode-toggle-pack.md` |
 
 ## Workflows
 
@@ -56,7 +57,7 @@ Read only the referenced spec file when a pattern is inspected or selected for i
 Follow these steps when the user runs `/ui-vault <category>`, `/ui-vault list`, or asks what UIs are available:
 
 1. If the user asked for all UIs (`list`, `all`, or bare `/ui-vault`), show a compact category overview with counts followed by a scannable table of every catalog entry grouped by category.
-2. If the user provided a category or keyword (such as `text input` or `password`):
+2. If the user provided a category or keyword (such as `text input` or `dark mode`):
    - Resolve the query against the Category & Alias Map AND match against the Catalog `Tags` and `Pattern` columns.
    - Display every matching entry in a clean Markdown table containing: **ID**, **Pattern**, **Motion Vibe**, **Best For**, and **Dependencies**.
    - If the query matches a valid category that currently has 0 saved items, state clearly that the category is currently empty, list which categories have entries today, and offer to save a new component into that category.
